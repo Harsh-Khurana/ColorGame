@@ -1,0 +1,137 @@
+:root{
+  --primaryColor: #53A0C6;
+}
+
+*, *::after,*::before{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+	background-color: #232323;
+	color:white;
+	text-transform: uppercase;
+	font-family: 'Bangers', cursive;
+	letter-spacing: 4px;
+	margin:0px;
+}
+
+#infoIcon, #infoContainer{
+  position: absolute;
+  text-align: right;
+  font-size: 24px;
+}
+
+#infoIcon{
+  z-index: 1000;
+  right: 8px;
+}
+
+#infoContainer{
+  z-index: 100;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  transition: transform .3s;
+  transform: scale(0,0);
+  transform-origin: top right;
+  p{
+    margin: 32px;
+    padding: 24px;
+    background-color: white;
+    color: var(--primaryColor);
+    border-radius: 16px;
+
+    .redness{
+      color: red;
+    }
+    .greenness{
+      color: green;
+    }
+    .blueness{
+      color: blue;
+    }
+  }
+}
+
+.viewInfo{
+  transform: scale(1,1) !important;
+}
+
+h1{
+  padding: 24px;
+  font-size: 40px;
+  text-align: center;
+  background-color: var(--primaryColor);
+}
+
+#controls{
+  display: flex;
+  justify-content: center;
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+  color: var(--primaryColor);
+  background-color: white;
+  span{
+    margin: 0 8%;
+  }
+  #levels{
+    display: flex;
+    button:first-child{
+      margin-right: 8px;
+    }
+  }
+}
+
+button{
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+  color: var(--primaryColor);
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  padding: 0 4px;
+}
+
+.levelSelected{
+  background-color: var(--primaryColor);
+  color:white;
+}
+
+#boxContainer{
+  padding-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 144px);
+  grid-gap: 16px;
+  justify-content: center;
+  .box{
+    width: 144px;
+    height: 144px;
+    border-radius: 16px;
+    transition: background-color .5s;
+  }
+  @media (orientation: portrait) {
+    padding-top: 40px;
+    grid-template-columns: repeat(2, 144px);
+  }
+}
+
+.hideBox{
+  display: none;
+}
+
+.playAgainAnimated{
+  animation: colorBlink 2s ease-in-out infinite;
+}
+
+@keyframes colorBlink{
+  0% {
+    color: var(--primaryColor);
+  }
+  50%{
+    color: white;
+  }
+  100%{
+    color: var(--primaryColor);
+  }
+}
