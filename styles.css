@@ -26,6 +26,7 @@ body {
 #infoIcon {
   z-index: 1000;
   right: 8px;
+  top: 8px;
 }
 
 #infoContainer {
